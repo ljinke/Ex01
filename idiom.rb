@@ -1,3 +1,4 @@
+if __FILE__ == $0
 
 # 1. nil check
 a||=[]
@@ -34,4 +35,6 @@ f3(10)
 f3(10,10)
 
 #6 self yield
+
+end
 

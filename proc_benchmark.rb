@@ -1,3 +1,5 @@
+if __FILE__ == $0
+
 require 'benchmark'
  
 def outer11(&bl)
@@ -42,4 +44,6 @@ Benchmark.bmbm(10) do |rpt|
   rpt.report("outer22") do
     n.times {outer22{}}
   end
+end
+
 end

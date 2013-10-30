@@ -1,3 +1,5 @@
+
+
 module Mixin
 	def self.included(base)
 		base.extend(ClassMethod)
@@ -18,7 +20,11 @@ class A
 	include Mixin
 end
 
-a = A.new
+if __FILE__ == $0
 
-a.who_am_i
-A.who_am_i
+	a = A.new
+
+	a.who_am_i
+	A.who_am_i
+
+end
