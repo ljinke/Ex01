@@ -35,7 +35,7 @@ describe Book do
 		Book.new('RSpec - BDD', 'unknow author', 99, @time, '0000-9977-3333')
 	end
 	context 'a good book' do
-		its (:name) {should_not be_empty}
+		its(:name) {should_not be_empty}
 		its(:isbn) {should_not be_empty}
 		
 		its(:author) {should_not be_empty}
