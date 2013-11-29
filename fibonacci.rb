@@ -1,6 +1,14 @@
 class Fibonacci
+	def fib_iterate(n)
+		n2, n1 = 0, 1
+		for i in (0 ... n-2)
+			n2, n1 = n1, n1 + n2
+		end
+		return n2 + n1
+	end
+
 	def recrusion_cal(n)
-		#p "fib(#{n})"
+		p "fib(#{n})"
 		if n<2
 			n
 		else
@@ -28,7 +36,8 @@ end
 
 if __FILE__ == $0
 	fib = Fibonacci.new
-	p fib.recrusion_cal(50)
+	#p fib.recrusion_cal(20)
+	p fib.fib_iterate(50)
 
-	#p fib.dynamic_programming_cal(50)
+	p fib.dynamic_programming_cal(50)
 end
