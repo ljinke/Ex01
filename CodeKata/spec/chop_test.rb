@@ -8,6 +8,9 @@ class TestChop < Test::Unit::TestCase
   def test_chop_lambda
     inner_func( lambda {|target, content| chop(target,content)})
   end
+  def test_chop_lambda_2
+    inner_func( -> (target, content){ chop(target,content) })
+  end
   def test_chop_recursive
     #inner_func(method(:chop_recursive))
     p = Proc.new do |*args|
