@@ -5,10 +5,17 @@ class TestChop < Test::Unit::TestCase
   def test_chop
     inner_func(method(:chop))
   end
-  def test_chop_recursive
-    inner_func(method(:chop_recursive))
+  def test_chop_lambda
+    inner_func( lambda {|target, content| chop(target,content)})
   end
-  
+  def test_chop_recursive
+    #inner_func(method(:chop_recursive))
+    p = Proc.new do |*args|
+        chop *args
+    end
+    inner_func(p)
+  end
+
   private 
     def inner_func(f)
         assert_equal(-1, f.call(3, []))
