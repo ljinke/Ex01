@@ -138,3 +138,15 @@ contrived(25) {|x| puts x}
 # to convert a block
 #contrived(25, lambda {|x| puts x})
 
+p '***********************************************Symbo to Proc******************************************'
+
+p [1,2,3].inject(0,&:+)
+
+#:captialize = lambda {|x| x.capitalize}
+p ['a','b','c'].map(&:capitalize)  #=>['A','B','C']
+
+class Symbol
+  def to_proc
+    Proc.new {|x| x.send(self)}  # invoke a method by symbol
+  end
+end
