@@ -1,0 +1,12 @@
+GEM
+  remote: http://ruby.taobao.org/
+  specs:
+    algorithms (0.6.1)
+    polaris (1.1.2)
+      algorithms
+
+PLATFORMS
+  x86-mingw32
+
+DEPENDENCIES
+  polaris
