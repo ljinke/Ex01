@@ -1,6 +1,6 @@
 #Newton's method to calc sqr
 def sqr(n)
-	raise 'shoudl be number' unless n.is_a?(Fixnum)
+	raise 'shoudl be number' unless n.is_a?(Numeric)
 	raise 'number should be larger than 0' if n < 0
 
 	t = 0.001 #precision
@@ -16,6 +16,12 @@ if __FILE__ == $0
 	p sqr 9
 	p sqr 2
 	p sqr 200
+	p sqr 0.5
+	begin
+		p sqr '-1'
+	rescue
+		p 'there should be error'
+	ensure
 
-	p sqr '-1'
+	end
 end
