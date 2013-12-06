@@ -1,7 +1,7 @@
 #Newton's method to calc sqr
 def sqr(n)
-	raise 'shoudl be number' unless n.is_a?(Numeric)
-	raise 'number should be larger than 0' if n < 0
+	raise ArgumentError, 'shoudl be number' unless n.is_a?(Numeric)
+	raise ArgumentError, 'number should be larger than 0' if n < 0
 
 	t = 0.001 #precision
 	r = n / 2;
