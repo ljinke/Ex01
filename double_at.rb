@@ -26,7 +26,7 @@ if __FILE__ == $0
 	puts "Hexagon.sides:   #{Hexagon.sides.inspect}"   # 6
 end
 
-# why I don't like @@attributes
+#
 class Base
   @@shared = 'cattr from base'
   class << self
