@@ -10,10 +10,12 @@ begin
 
 rescue SyntaxError, NameError => boom 
 	p "String doesn't compile: "
-rescue StandardError => bang 
-	p "Error running script:"
 rescue RuntimeError
 	p 'Genral error'
+rescue StandardError => bang 
+	p "Error running script:"
+else
+	p 'other eror'
 ensure
 	p 'process anyway'
 end
