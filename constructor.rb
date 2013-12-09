@@ -8,7 +8,7 @@ class Person
 end
 
 class Employee < Person
-    def initialize(name, salary)
+    def initialize(name, salary)#chained constructor
         super(name)
         @salary = salary
     end

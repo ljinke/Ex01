@@ -4,7 +4,7 @@ end
 class A
   include Base
   def do_something
-    
+    puts "I am #{self}"
   end
   def self.included(base)
     p "including #{base}"
@@ -19,25 +19,28 @@ end
 A.foo
 a = A.new
 a.do_something
-a.class.foo
+p A
+p a
+p a.class
+p a.class.foo
 
-#open an object/instantce
+#open an object/instantce 
 #way1
 class << a
 	def foo1
-		p 'i am a'
+		p 'i am a.foo1'
 	end
 end
 
 #way2
 def a.foo2 
- p 'i am a'
+ p 'i am a.foo2'
 end 
 
 #way 3
 a.instance_eval <<EOT
   def foo3
-    p "i am a"
+    p "i am a.foo3"
   end
 EOT
 
@@ -45,7 +48,7 @@ EOT
 
 module Foo
   def foo4
-    p "i am a"
+    p "i am a.foo4"
   end
 end
 
