@@ -26,13 +26,15 @@ a.class.foo
 #open a class
 class A
   def another
-    p 'i am a.another'
+    p "i am #{self}.another"
   end
 end
 
+p self
+
 class << A
   def another2
-    p 'i am A.another'
+    p "i am #{self}.another"
   end
 end
 
