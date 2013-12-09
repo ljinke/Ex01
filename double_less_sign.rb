@@ -1,3 +1,5 @@
+#<< means scope changing: in the code block below, the scope (self) is changed to the object following <<
+
 module Base
 end
 
@@ -20,6 +22,22 @@ A.foo
 a = A.new
 a.do_something
 a.class.foo
+
+#open a class
+class A
+  def another
+    p 'i am a.another'
+  end
+end
+
+class << A
+  def another2
+    p 'i am A.another'
+  end
+end
+
+A.another2
+a.another
 
 #open an object/instantce
 #way1
