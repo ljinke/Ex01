@@ -1,3 +1,5 @@
+#Singleton Class/meta class/eigen class
+
 class Object
    # The hidden singleton lurks behind everyone
    def metaclass; class << self; self; end; end
@@ -13,7 +15,7 @@ class Object
      class_eval { define_method name, &blk }
    end
  end
-#5 ways to create a class method.
+#five ways to create a class method/open a class and add a class method.
 class Person
   def self.species
     "Homo Sapien"
@@ -33,7 +35,7 @@ class << Person
     "Homo Sapien"
   end
 end
- 
+#instance_eval called by Class will add a class method.
 Person.instance_eval do
   def species
     "Homo Sapien"
