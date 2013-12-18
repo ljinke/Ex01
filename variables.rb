@@ -38,6 +38,5 @@ p b.instance_variables #=>[:@a]
 # variable will not be add to instance/object until it's used/called.
 # instances/objects of the same type/class may have different variable
 
-p b.f5
 p VariableClass.instance_variables
 
