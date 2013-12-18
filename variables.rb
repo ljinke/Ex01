@@ -17,6 +17,9 @@ class VariableClass
 	def f4 
 		#@d = @d + 1 # this will throw error as @d as instance varialble is not defined/initialized so it's nil, nil has not '+'' method.
 	end
+	def self.f5
+		@d += 1 #access class variable in class method
+	end
 end
 
 a = VariableClass.new
@@ -39,4 +42,6 @@ p b.instance_variables #=>[:@a]
 # instances/objects of the same type/class may have different variable
 
 p VariableClass.instance_variables
+
+p VariableClass.f5
 
