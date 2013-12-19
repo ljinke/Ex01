@@ -1,17 +1,29 @@
-def try_ret_procnew
-    ret = Proc.new { return "Baaam" }
-    ret.call
-    "This is not reached"
+module DogMixin
+  class << self
+    def included(base)
+      p base
+      base.extend ClassMethods
+    end
+  end
+
+  def f
+  end
+  module ClassMethods
+    def assign(*names)
+      # @dogs is bound to the EACH DogOwner subclass
+      @dog_names = names
+    end
+
+    def dog_names
+      # @dogs is bound to the EACH DogOwner subclass
+      @dog_names
+    end
+  end
 end
 
-def try_ret_lambda
-    ret = lambda { return "Baaam" }
-    ret.call
-    "This is printed"
+class Owner
+  include DogMixin
 end
 
-if __FILE__ == $0
-	p try_ret_procnew
-
-	p try_ret_lambda
-end
+p Owner.methods
+p Owner.instance_methods
