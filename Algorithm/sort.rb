@@ -1,3 +1,4 @@
+#quick sort: select a pivot and partition the data with this pivot, then sort the paritions seperately
 def quick_sort(array)
   # return [] if array.empty?
   return array if array.size < 2
