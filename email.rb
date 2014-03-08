@@ -20,4 +20,13 @@ if __FILE__ == $0
 	
 	p job.from
 	p job.to
+
+	email2 = Email.new
+	['from','to'].each do |attr|
+		v = job.instance_variable_get("@#{attr}")
+		email2.instance_variable_set("@#{attr}",v)
+	end
+
+	p email2.from
+	p email2.to
 end
