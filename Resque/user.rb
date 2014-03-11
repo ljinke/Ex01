@@ -1,3 +1,4 @@
+require 'resque'
 class User
   @queue = :food
 
@@ -5,3 +6,7 @@ class User
     puts "your name is #{name}"
   end
 end
+
+r = Resque.new
+
+Resque.enqueue(User, "Hello")
