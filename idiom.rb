@@ -15,7 +15,32 @@ end
 
 f(:name=>'Tom',:Id=>9001)
 
+def f4(p1, options={})
+  p p1
+  p2 = options[:p2] || options["p2"]
+  p p2.class.name
+  p p2[0]
+  p p2[1]
+  p p2.join ','
+  p "(abc)"
+end
+
+f4(1,"p2"=>["'applicationi/pdf'","abc"], :p3=>3)
+
 # f(name:'Tom',Id:9001) Ruby 2.0
+
+def my_method(opts={})
+   o = {
+     :a => 'Testing',
+     :b => 'this',
+     :c => 'feature'
+   }.merge(opts)
+   
+   puts "#{o[:a]} #{o[:b]} #{o[:c]}"
+ end
+ 
+ my_method
+ my_method( :b => 'this great' )
 
 #4 array parameter
 
@@ -35,6 +60,10 @@ f3(10)
 f3(10,10)
 
 #6 self yield
+
+abc={}
+abc[:k] = [1,2,3]
+p abc[:k]
 
 end
 
