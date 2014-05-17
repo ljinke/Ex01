@@ -1,3 +1,6 @@
+require 'benchmark'
+require 'matrix'
+
 class Fibonacci
 	def fib_iterate(n)
 		n2, n1 = 0, 1
@@ -8,7 +11,6 @@ class Fibonacci
 	end
 
 	def recrusion_cal(n)
-		p "fib(#{n})"
 		if n<2
 			n
 		else
@@ -19,6 +21,12 @@ class Fibonacci
 		cache = Array.new(n + 1, -1)
 		inner_dynam_programming_cal(n, cache)
 	end
+
+	def fib n
+	  m = Matrix[[1,1],[1,0]]
+	  (m ** n)[0,0]
+	end
+
 	private
 		def inner_dynam_programming_cal(n, cache)
 
@@ -36,8 +44,14 @@ end
 
 if __FILE__ == $0
 	fib = Fibonacci.new
-	#p fib.recrusion_cal(20)
-	p fib.fib_iterate(50)
+	Benchmark.bmbm do |tm|
+		n = 50
+		tm.report('recursive'){ fib.recrusion_cal(n) }
+		
+		tm.report('iterate') { fib.fib_iterate(n) }
 
-	p fib.dynamic_programming_cal(50)
+		tm.report('dp') { fib.dynamic_programming_cal(n)}
+
+		tm.report('matrix') { fib.fib(n)}
+	end
 end
