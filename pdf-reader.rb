@@ -3,6 +3,45 @@ require 'pdf/reader'
 require 'pdf-reader'
 
 
+module PDF
+  class Reader
+
+    def page_index
+      @page_index ||= build_page_index
+    end
+    
+  private
+    def build_page_index
+      page_index = {}
+
+      pages = root[:Pages] #:Type => :pages
+
+      get_ordered_page__ids(pages).each_with_index do |id,i|
+        page_index[id] = i
+      end
+
+      page_index
+    end
+
+
+    def get_ordered_page__ids(obj)
+      reference = self.objects[obj]
+      if reference[:Type] == :Page
+        [obj.id]
+      elsif reference[:Type] == :Pages#Pages
+        ids = []
+        reference[:Kids].each do |page|
+          ids = ids + get_ordered_page__ids(page)
+        end
+        ids
+      else
+        []
+      end
+    end
+  end
+end
+
+
 class PdfHelper
   # Given a PDF filename open it and extract out the links and return them as an 
   # array of hashes.  If they are a URL, they will have :url otherwise look for
