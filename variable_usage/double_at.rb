@@ -55,3 +55,5 @@ puts Derived.unshared
 puts Derived.shared
 puts Ouch.unshared
 puts Ouch.shared
+
+p RUBY_VERSION
