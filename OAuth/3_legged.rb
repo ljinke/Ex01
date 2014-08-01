@@ -1,3 +1,5 @@
+#he three parties (legs) involved are the Service Provider, Consumer, and User
+
 require 'rubygems'
 require 'oauth'
 
