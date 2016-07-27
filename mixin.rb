@@ -1,5 +1,3 @@
-
-
 module Mixin
 	def self.included(base)
 		p "module #{self} is being included by #{base}"
